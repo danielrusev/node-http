@@ -8,6 +8,7 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "@sentry/node": "4.0.5"
+    "@sentry/node": "4.0.5",
+    "raven": "^2.6.4"
   }
 }

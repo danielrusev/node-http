@@ -2,8 +2,8 @@
 var http = require('http');
 var fileSystem = require('fs');
 
-const Sentry = require('@sentry/node');
-Sentry.init({ dsn: 'https://92e081050080418a8a6124df5e10435e@sentry.io/1289615' });
+var Raven = require('raven');
+Raven.config('http://cfbb97d606394c82a7fd4b040970db5a@35.228.87.41:9000/3').install();
 
 var server = http.createServer(function(req, resp){
 	fileSystem.readFile('./index.html', function(error, fileContent){
@@ -15,6 +15,7 @@ var server = http.createServer(function(req, resp){
 			resp.writeHead(200, {'Content-Type': 'text/html'});
 			resp.write(fileContent);
 			resp.end();
+			Raven.captureException("exception from node server");
 		}
 	});
 });
