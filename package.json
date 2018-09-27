@@ -6,5 +6,8 @@
   "scripts": {
     "test": "echo \"no test specified\" && exit 0",
     "start": "node server.js"
+  },
+  "dependencies": {
+    "@sentry/node": "4.0.5"
   }
 }
